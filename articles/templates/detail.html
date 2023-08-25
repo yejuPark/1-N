@@ -7,10 +7,16 @@
 
     <hr>
 
+    <h3>comment</h3>
+
     <form action="{% url 'articles:comment_create' article_id=article.id %}" method="POST">
         {% csrf_token %}
         {{comment_form}}
         <input type="submit">
     </form>
+    
+    {% for comment in article.comment_set.all %}
+    <p>{{comment.content}}</p>
+    {% endfor %}
 
 {% endblock %}
