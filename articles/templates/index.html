@@ -5,6 +5,7 @@
     <h1>index</h1>
     {% for article in articles %}
         <p>{{article.title}}</p>
+        <a href="{% url 'articles:detail' id=article.id %}">detail</a>
         <hr>
     {% endfor %}
 
